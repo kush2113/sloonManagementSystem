@@ -3,7 +3,6 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.chart.PieChart?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.ColorAdjust?>
 <?import javafx.scene.image.Image?>
@@ -17,11 +16,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="rootNode" prefHeight="795.0" prefWidth="1544.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.demokushan.controller.DashBoardFormController">
+<AnchorPane fx:id="rootNode" prefHeight="798.0" prefWidth="1549.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.demokushan.controller.DashBoardFormController">
    <children>
       <Rectangle fx:id="rectangal" arcHeight="5.0" arcWidth="5.0" height="796.0" layoutX="-1.0" layoutY="-1.0" stroke="#ffbd0a" strokeType="INSIDE" strokeWidth="5.0" width="284.0">
          <fill>
-            <LinearGradient endX="1.0" endY="0.27556818181818166" startX="1.0" startY="0.9810606060606061">
+            <LinearGradient endX="1.0" endY="0.8551136435884417" startX="1.0" startY="0.9810606060606061">
                <stops>
                   <Stop>
                      <color>
@@ -38,93 +37,101 @@
          </fill>
       </Rectangle>
       <Rectangle fx:id="rectangal1" arcHeight="5.0" arcWidth="5.0" fill="#edf2fa" height="802.0" layoutX="283.0" layoutY="-9.0" stroke="#fafafa" strokeType="INSIDE" width="1270.0" />
+      <JFXButton buttonType="RAISED" layoutX="1.0" layoutY="740.0" onAction="#btnLogOutOnAction" prefHeight="52.0" prefWidth="278.0" ripplerFill="BLACK" text="LogOut" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </JFXButton>
       <ImageView fitHeight="195.0" fitWidth="244.0" layoutX="4.0" layoutY="4.0" pickOnBounds="true">
          <effect>
             <ColorAdjust brightness="0.07" contrast="0.13" />
          </effect>
          <Image url="@../icon/Screenshot.png" />
       </ImageView>
-      <Button fx:id="HairCutBtn1" blendMode="ADD" layoutX="4.0" layoutY="218.0" mnemonicParsing="false" onAction="#btnDashBoardonAction" prefHeight="62.0" prefWidth="219.0" style="-fx-background-color: black;" text="   Dashboard" textFill="#fff9f9">
+      <JFXButton fx:id="HairCutBtn1" buttonType="RAISED" layoutX="5.0" layoutY="253.0" onAction="#btnDashBoardonAction" prefHeight="62.0" prefWidth="272.0" style="-fx-background-radius: 20; -fx-background-color: black;" text="Dashboard" textFill="WHITE">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
-      </Button>
-      <Button fx:id="CustomerBtn" blendMode="ADD" layoutX="1.0" layoutY="281.0" mnemonicParsing="false" onAction="#btnCustomerOnAction" prefHeight="62.0" prefWidth="212.0" style="-fx-background-color: black;" text="            Add Customer" textFill="#fff9f9">
+      </JFXButton>
+      <JFXButton fx:id="CustomerBtn" buttonType="RAISED" layoutX="4.0" layoutY="315.0" onAction="#btnCustomerOnAction" prefHeight="62.0" prefWidth="272.0" style="-fx-background-radius: 20; -fx-background-color: black;" text="    Add Customer" textFill="WHITE">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
-      </Button>
-      <Button fx:id="AppointmentBtn" blendMode="ADD" layoutX="-1.0" layoutY="422.0" mnemonicParsing="false" onAction="#btnAppointmentOnAction" prefHeight="62.0" prefWidth="207.0" style="-fx-background-color: black;" text="            Appointment" textFill="#fffdfd">
+      </JFXButton>
+      <JFXButton fx:id="EmployeeBtn" buttonType="RAISED" layoutX="4.0" layoutY="377.0" onAction="#btnEmployeeOnAction" prefHeight="62.0" prefWidth="272.0" style="-fx-background-radius: 20; -fx-background-color: black;" text="Employee" textFill="WHITE">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
-      </Button>
-      <Button fx:id="PaymentBtn" blendMode="ADD" layoutX="-1.0" layoutY="496.0" mnemonicParsing="false" onAction="#btnPaymentOnAction" prefHeight="62.0" prefWidth="226.0" style="-fx-background-color: black;" text="Payment" textFill="#fffbfb">
+      </JFXButton>
+      <JFXButton fx:id="AppointmentBtn" buttonType="RAISED" layoutX="5.0" layoutY="439.0" onAction="#btnAppointmentOnAction" prefHeight="62.0" prefWidth="272.0" style="-fx-background-radius: 20; -fx-background-color: black;" text="   Appointment" textFill="WHITE">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
-      </Button>
-      <Button fx:id="HairCutBtn" blendMode="ADD" layoutX="1.0" layoutY="570.0" mnemonicParsing="false" onAction="#btnHariCutonAction" prefHeight="62.0" prefWidth="219.0" style="-fx-background-color: black;" text="Hair Cut" textFill="#fffcfc">
+      </JFXButton>
+      <JFXButton fx:id="PaymentBtn" buttonType="RAISED" layoutX="5.0" layoutY="501.0" onAction="#btnPaymentOnAction" prefHeight="62.0" prefWidth="272.0" style="-fx-background-radius: 20; -fx-background-color: black;" text="Payment" textFill="WHITE">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
-      </Button>
-      <Button fx:id="ProductBtn" blendMode="ADD" layoutX="-4.0" layoutY="639.0" mnemonicParsing="false" onAction="#btnProductOnAction" prefHeight="62.0" prefWidth="226.0" style="-fx-background-color: black;" text="Product " textFill="#fffdfd">
+      </JFXButton>
+      <JFXButton fx:id="HairCutBtn" buttonType="RAISED" layoutX="5.0" layoutY="563.0" onAction="#btnHariCutonAction" prefHeight="62.0" prefWidth="272.0" style="-fx-background-radius: 20; -fx-background-color: black;" text="Hair Cut" textFill="WHITE">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
-      </Button>
-      <Button fx:id="SupplierBtn" blendMode="ADD" layoutY="707.0" mnemonicParsing="false" onAction="#btnSupplierOnAction" prefHeight="62.0" prefWidth="226.0" style="-fx-background-color: black;" text="Supplier" textFill="WHITE">
+      </JFXButton>
+      <JFXButton fx:id="ProductBtn" buttonType="RAISED" layoutX="5.0" layoutY="625.0" onAction="#btnProductOnAction" prefHeight="62.0" prefWidth="272.0" style="-fx-background-radius: 20; -fx-background-color: black;" text="Product " textFill="WHITE">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
-      </Button>
-      <Button fx:id="EmployeeBtn" blendMode="ADD" layoutX="1.0" layoutY="352.0" mnemonicParsing="false" onAction="#btnEmployeeOnAction" prefHeight="62.0" prefWidth="226.0" style="-fx-background-color: black;" text="Employee" textFill="WHITE">
+      </JFXButton>
+      <JFXButton fx:id="SupplierBtn" buttonType="RAISED" layoutX="5.0" layoutY="687.0" onAction="#btnSupplierOnAction" prefHeight="62.0" prefWidth="272.0" style="-fx-background-radius: 20; -fx-background-color: black;" text="Supplier" textFill="WHITE">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
-      </Button>
-      <ImageView fitHeight="40.0" fitWidth="37.0" layoutX="25.0" layoutY="231.0" pickOnBounds="true" preserveRatio="true">
+      </JFXButton>
+      <ImageView fitHeight="40.0" fitWidth="37.0" layoutX="44.0" layoutY="264.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../icon/dashboard-256.png" />
          </image>
       </ImageView>
-      <ImageView blendMode="ADD" fitHeight="51.0" fitWidth="40.0" layoutX="22.0" layoutY="293.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView blendMode="ADD" fitHeight="51.0" fitWidth="40.0" layoutX="44.0" layoutY="328.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../icon/Screenshot 2028.png" />
          </image>
       </ImageView>
-      <ImageView blendMode="ADD" fitHeight="45.0" fitWidth="40.0" layoutX="21.0" layoutY="356.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView blendMode="ADD" fitHeight="45.0" fitWidth="40.0" layoutX="46.0" layoutY="384.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../icon/Screenshot 2022.png" />
          </image>
       </ImageView>
-      <ImageView blendMode="LIGHTEN" fitHeight="42.0" fitWidth="40.0" layoutX="23.0" layoutY="509.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView blendMode="LIGHTEN" fitHeight="42.0" fitWidth="40.0" layoutX="46.0" layoutY="511.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../icon/Screenshot 2023.png" />
          </image>
+         <effect>
+            <ColorAdjust brightness="-0.04" contrast="1.0" hue="0.05" saturation="-1.0" />
+         </effect>
       </ImageView>
-      <ImageView blendMode="ADD" fitHeight="42.0" fitWidth="51.0" layoutX="14.0" layoutY="433.0" pickOnBounds="true">
+      <ImageView blendMode="ADD" fitHeight="42.0" fitWidth="51.0" layoutX="40.0" layoutY="446.0" pickOnBounds="true">
          <image>
             <Image url="@../icon/Screenshot 2024-05.png" />
          </image>
       </ImageView>
-      <ImageView cache="true" cacheHint="SPEED" fitHeight="42.0" fitWidth="51.0" layoutX="13.0" layoutY="579.0" pickOnBounds="true">
+      <ImageView cache="true" cacheHint="SPEED" fitHeight="42.0" fitWidth="51.0" layoutX="38.0" layoutY="572.0" pickOnBounds="true">
          <image>
             <Image url="@../icon/scissors-5038.gif" />
          </image>
       </ImageView>
-      <ImageView blendMode="LIGHTEN" fitHeight="42.0" fitWidth="51.0" layoutX="11.0" layoutY="648.0" pickOnBounds="true">
+      <ImageView blendMode="LIGHTEN" fitHeight="42.0" fitWidth="51.0" layoutX="38.0" layoutY="635.0" pickOnBounds="true">
          <image>
             <Image url="@../icon/Screenshot 2026.png" />
          </image>
       </ImageView>
-      <ImageView blendMode="LIGHTEN" fitHeight="51.0" fitWidth="63.0" layoutX="5.0" layoutY="713.0" pickOnBounds="true">
+      <ImageView blendMode="LIGHTEN" fitHeight="51.0" fitWidth="63.0" layoutX="35.0" layoutY="693.0" pickOnBounds="true">
          <image>
             <Image url="@../icon/Screenshot 2024.png" />
          </image>
       </ImageView>
-      <AnchorPane fx:id="root1" layoutX="283.0" prefHeight="794.0" prefWidth="1270.0" style="-fx-background-color: #edf2fb; -fx-border-color: #ffbd0a; -fx-border-width: 2;">
+      <AnchorPane fx:id="root1" layoutX="283.0" prefHeight="798.0" prefWidth="1259.0" style="-fx-background-color: #edf2fb; -fx-border-color: #ffbd0a; -fx-border-width: 2;">
          <children>
             <AnchorPane cache="true" layoutX="156.0" layoutY="528.0" prefHeight="210.0" prefWidth="556.0" style="-fx-background-color: white; -fx-background-radius: 40;">
                <effect>
@@ -309,17 +316,12 @@
                   </ImageView>
                </children>
             </AnchorPane>
-            <JFXButton buttonType="RAISED" layoutX="1130.0" layoutY="12.0" onAction="#btnLogOutOnAction" prefHeight="34.0" prefWidth="126.0" text="LogOut" textFill="RED">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </JFXButton>
             <JFXButton layoutX="2.0" layoutY="71.0" onAction="#btnProfileOnAction" prefHeight="30.0" prefWidth="94.0" text="Profile">
                <font>
                   <Font name="Tw Cen MT" size="16.0" />
                </font>
             </JFXButton>
-            <Label fx:id="lblTime" layoutX="71.0" layoutY="743.0" prefHeight="31.0" prefWidth="110.0" text="Label">
+            <Label fx:id="lblTime" layoutX="71.0" layoutY="743.0" prefHeight="31.0" prefWidth="110.0" text="00:00:00">
                <font>
                   <Font name="System Bold" size="21.0" />
                </font>
@@ -336,7 +338,7 @@
                   <Image url="@../icon/haircutter-cutting-beard-man-barber-shop_82574-11754.jpg" />
                </image>
             </ImageView>
-            <Label fx:id="lblDate" layoutX="1131.0" layoutY="742.0" prefHeight="31.0" prefWidth="124.0" text="Label">
+            <Label fx:id="lblDate" layoutX="1131.0" layoutY="742.0" prefHeight="31.0" prefWidth="124.0" text="2000-00-00">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
@@ -349,11 +351,15 @@
          </children>
 
       </AnchorPane>
-      <Text fill="#ffbd0a" layoutX="164.0" layoutY="207.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(PVT)" wrappingWidth="74.25">
+      <Text fill="#ffbd0a" layoutX="143.0" layoutY="207.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(PVT)" wrappingWidth="74.25">
          <font>
             <Font name="System Bold" size="25.0" />
          </font>
       </Text>
-      <AnchorPane fx:id="rootNod25" layoutX="361.0" layoutY="11.0" prefHeight="726.0" prefWidth="387.0" />
+      <Text fill="WHITE" layoutX="212.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ltd" wrappingWidth="47.25">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import javafx.scene.control.ComboBox?>
+<?import com.jfoenix.controls.JFXComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.ColorAdjust?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.paint.LinearGradient?>
@@ -35,29 +36,29 @@
             </LinearGradient>
          </fill>
       </Rectangle>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" height="314.0" layoutX="104.0" layoutY="35.0" stroke="#ffd200" strokeType="INSIDE" strokeWidth="5.0" width="1070.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="298.0" layoutX="104.0" layoutY="51.0" stroke="#ffd200" strokeType="INSIDE" strokeWidth="5.0" width="1070.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b1b1b1" height="60.0" layoutX="840.0" layoutY="723.0" opacity="0.31" stroke="BLACK" strokeType="INSIDE" width="302.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b1b1b1" height="66.0" layoutX="550.0" layoutY="215.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="83.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b1b1b1" height="66.0" layoutX="718.0" layoutY="215.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="83.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b1b1b1" height="66.0" layoutX="900.0" layoutY="215.0" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="83.0" />
-      <Text fill="WHITE" layoutX="196.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="HairCut Id        :" wrappingWidth="184.40006713867194">
+      <Text fill="WHITE" layoutX="230.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="HairCut Id        :" wrappingWidth="184.40006713867194">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Text>
-      <TextField fx:id="txtHcId" layoutX="332.0" layoutY="68.0" onKeyReleased="#idKeyReleaseOnAction" prefHeight="29.0" prefWidth="228.0" />
-      <Text fill="WHITE" layoutX="193.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="HairCut Style   :" wrappingWidth="190.26664428710944">
+      <TextField fx:id="txtHcId" layoutX="366.0" layoutY="68.0" onKeyReleased="#idKeyReleaseOnAction" prefHeight="29.0" prefWidth="228.0" />
+      <Text fill="WHITE" layoutX="227.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="HairCut Style   :" wrappingWidth="190.26664428710944">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Text>
-      <TextField fx:id="txtStyle" layoutX="331.0" layoutY="135.0" onKeyReleased="#styleKeyReleaseOnAction" prefHeight="29.0" prefWidth="228.0" />
-      <Text fill="WHITE" layoutX="633.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price    :" wrappingWidth="118.80000000000007">
+      <TextField fx:id="txtStyle" layoutX="365.0" layoutY="135.0" onKeyReleased="#styleKeyReleaseOnAction" prefHeight="29.0" prefWidth="228.0" />
+      <Text fill="WHITE" layoutX="641.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price    :" wrappingWidth="118.80000000000007">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Text>
-      <TextField fx:id="txtPrice" layoutX="708.0" layoutY="69.0" onKeyReleased="#priceKeyReleaseOnAction" prefHeight="29.0" prefWidth="228.0" />
+      <TextField fx:id="txtPrice" layoutX="716.0" layoutY="69.0" onKeyReleased="#priceKeyReleaseOnAction" prefHeight="29.0" prefWidth="228.0" />
       <TableView fx:id="tblHairCutProductDetails" layoutX="663.0" layoutY="367.0" opacity="0.91" prefHeight="346.0" prefWidth="505.0" style="-fx-background-color: #a4b0be;">
          <columns>
             <TableColumn fx:id="colProductId" prefWidth="69.066650390625" text="ProductID" />
@@ -68,44 +69,44 @@
             <TableColumn fx:id="colAction" minWidth="0.0" prefWidth="122.4000244140625" text="Action" />
          </columns>
       </TableView>
-      <Text fill="WHITE" layoutX="161.0" layoutY="251.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Product Name:" wrappingWidth="152.40009765625007">
+      <Text fill="WHITE" layoutX="245.0" layoutY="318.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Product Name:" wrappingWidth="123.60014038085944">
          <font>
-            <Font name="System Bold" size="19.0" />
+            <Font name="System Bold" size="16.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="467.0" layoutY="253.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Product ID :" wrappingWidth="85.80000000000018">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
-      </Text>
-      <Text fill="WHITE" layoutX="641.0" layoutY="253.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Unit price :" wrappingWidth="76.79999999999995">
+      <Text fill="WHITE" layoutX="247.0" layoutY="253.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Product Id :" wrappingWidth="85.80000000000018">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="811.0" layoutY="251.0" strokeType="OUTSIDE" strokeWidth="0.0" text="QtyOnHand :" wrappingWidth="85.80000000000018">
+      <Text fill="WHITE" layoutX="421.0" layoutY="253.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Unit price :" wrappingWidth="76.79999999999995">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Text>
-      <Label fx:id="lblProductId" layoutX="552.0" layoutY="235.0" prefHeight="27.0" prefWidth="63.0" textFill="WHITE">
+      <Text fill="WHITE" layoutX="591.0" layoutY="251.0" strokeType="OUTSIDE" strokeWidth="0.0" text="QtyOnHand :" wrappingWidth="85.80000000000018">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Text>
+      <Label fx:id="lblProductId" layoutX="332.0" layoutY="235.0" prefHeight="27.0" prefWidth="63.0" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font></Label>
-      <Label fx:id="lblProductQtyOnHand" layoutX="904.0" layoutY="232.0" prefHeight="27.0" prefWidth="64.0" textFill="WHITE">
+      <Label fx:id="lblProductQtyOnHand" layoutX="684.0" layoutY="232.0" prefHeight="27.0" prefWidth="64.0" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font></Label>
-      <Label fx:id="lblProductUnitPrice" layoutX="720.0" layoutY="234.0" prefHeight="27.0" prefWidth="73.0" textFill="WHITE">
+      <Label fx:id="lblProductUnitPrice" layoutX="500.0" layoutY="234.0" prefHeight="27.0" prefWidth="73.0" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font></Label>
-      <Text fill="WHITE" layoutX="981.0" layoutY="251.0" strokeType="OUTSIDE" strokeWidth="0.0" text="qty :" wrappingWidth="47.40000000000009">
+      <Text fill="WHITE" layoutX="761.0" layoutY="251.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Qty :" wrappingWidth="47.40000000000009">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Text>
-      <TextField fx:id="txtQty" layoutX="1017.0" layoutY="233.0" prefHeight="30.0" prefWidth="77.0" />
+      <TextField fx:id="txtQty" layoutX="797.0" layoutY="233.0" prefHeight="30.0" prefWidth="77.0" />
       <Text fill="WHITE" layoutX="863.0" layoutY="760.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Net Product Cost  :" wrappingWidth="184.39990234375">
          <font>
             <Font name="System Bold" size="19.0" />
@@ -123,36 +124,40 @@
          </columns>
       </TableView>
       <Line endX="107.99998474121094" endY="215.00001525878906" layoutX="-2.0" startX="1174.0001220703125" startY="215.0" stroke="#ffd200" strokeWidth="3.0" />
-      <JFXButton buttonType="RAISED" layoutX="836.0" layoutY="294.0" onAction="#btnSaveOnAction" prefHeight="36.0" prefWidth="102.0" ripplerFill="BLACK" style="-fx-background-color: #e67e22;" text="Save">
+      <JFXButton buttonType="RAISED" layoutX="836.0" layoutY="294.0" onAction="#btnSaveOnAction" prefHeight="30.0" prefWidth="100.0" ripplerFill="WHITE" style="-fx-background-color: #0466c8; -fx-background-radius: 20;" text="Save" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </JFXButton>
-      <JFXButton buttonType="RAISED" layoutX="840.0" layoutY="159.0" onAction="#btnClearOnAction" prefHeight="36.0" prefWidth="102.0" ripplerFill="BLACK" style="-fx-background-color: #e67e22;" text="Clear">
+      <JFXButton buttonType="RAISED" layoutX="840.0" layoutY="159.0" onAction="#btnClearOnAction" prefHeight="30.0" prefWidth="100.0" ripplerFill="WHITE" style="-fx-background-color: #0466c8; -fx-background-radius: 20;" text="Clear" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </JFXButton>
-      <JFXButton buttonType="RAISED" layoutX="727.0" layoutY="159.0" onAction="#btnUpadateOnAction" prefHeight="36.0" prefWidth="102.0" ripplerFill="BLACK" style="-fx-background-color: #e67e22;" text="Update">
+      <JFXButton buttonType="RAISED" layoutX="727.0" layoutY="159.0" onAction="#btnUpadateOnAction" prefHeight="30.0" prefWidth="100.0" ripplerFill="WHITE" style="-fx-background-color: #0466c8; -fx-background-radius: 20;" text="Update" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </JFXButton>
-      <JFXButton buttonType="RAISED" layoutX="954.0" layoutY="159.0" onAction="#btnDeleteOnAction" prefHeight="36.0" prefWidth="102.0" ripplerFill="BLACK" style="-fx-background-color: red;" text="Delete">
+      <JFXButton buttonType="RAISED" layoutX="954.0" layoutY="159.0" onAction="#btnDeleteOnAction" prefHeight="30.0" prefWidth="100.0" ripplerFill="WHITE" style="-fx-background-color: red; -fx-background-radius: 20;" text="Delete" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </JFXButton>
-      <JFXButton buttonType="RAISED" layoutX="949.0" layoutY="294.0" onAction="#btnAddToTableOnAction" prefHeight="36.0" prefWidth="102.0" ripplerFill="BLACK" style="-fx-background-color: #7bed9f;" text="Add to table">
+      <JFXButton buttonType="RAISED" layoutX="949.0" layoutY="294.0" onAction="#btnAddToTableOnAction" prefHeight="30.0" prefWidth="100.0" ripplerFill="WHITE" style="-fx-background-color: #7bed9f; -fx-background-radius: 20;" text="Add to table">
          <font>
             <Font name="System Bold Italic" size="13.0" />
          </font>
       </JFXButton>
-      <JFXButton buttonType="RAISED" layoutX="491.0" layoutY="72.0" onAction="#btnSearchOnAction" prefHeight="12.0" prefWidth="64.0" style="-fx-background-color: #0466c8; -fx-background-radius: 12;" text="Search" textFill="WHITE">
+      <JFXComboBox fx:id="cmbProductName" layoutX="367.0" layoutY="298.0" onAction="#cmbProductNameOnAction">
+         <effect>
+            <ColorAdjust brightness="1.0" />
+         </effect>
+      </JFXComboBox>
+      <TextField fx:id="txtSearch" layoutX="371.0" layoutY="8.0" onAction="#btnSearchchOnAction" onKeyReleased="#idKeyReleaseOnAction" prefHeight="38.0" prefWidth="642.0" promptText="   Search" style="-fx-background-radius: 20; -fx-border-color: #ffd200; -fx-border-width: 3; -fx-border-radius: 20;">
          <font>
-            <Font name="System Bold" size="10.0" />
+            <Font name="Arial Bold" size="14.0" />
          </font>
-      </JFXButton>
-      <ComboBox fx:id="cmbProductName" layoutX="308.0" layoutY="233.0" onAction="#cmbProductNameOnAction" prefWidth="150.0" />
+      </TextField>
    </children>
 </AnchorPane>

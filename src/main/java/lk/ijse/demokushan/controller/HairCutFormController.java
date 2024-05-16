@@ -55,6 +55,7 @@ public class HairCutFormController {
     public TableColumn colHairCutStyle;
     public TableColumn coltPrice;
     public TableView tblHairCut;
+    public TextField txtSearch;
 
     private ObservableList<HairCutTM> obList = FXCollections.observableArrayList();
 
@@ -201,6 +202,7 @@ public class HairCutFormController {
                 new Alert(Alert.AlertType.WARNING, "Failed to Add Hair Cut!").show();
             }
             initialize();
+            clearFields();
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
 
@@ -238,6 +240,7 @@ public class HairCutFormController {
                 new Alert(Alert.AlertType.CONFIRMATION, "hairCut updated!").show();
 
                 initialize();
+                clearFields();
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
@@ -245,7 +248,13 @@ public class HairCutFormController {
     }
 
     public void btnClearOnAction(ActionEvent actionEvent) {
-        txtHcId.setText("");
+        clearFields();
+        genarateNextHairCutId();
+    }
+
+    private void clearFields() {
+
+        txtSearch.setText("");
         txtStyle.setText("");
         txtPrice.setText("");
     }
@@ -262,6 +271,7 @@ public class HairCutFormController {
                     new Alert(Alert.AlertType.CONFIRMATION, "haircut deleted!").show();
 
                     initialize();
+                    clearFields();
                 }
             } catch (SQLException e) {
                 new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
@@ -296,7 +306,7 @@ public class HairCutFormController {
             new Alert(Alert.AlertType.INFORMATION, "hairCut not found!").show();
         }
     } else{
-        // Show error message if validation fails
+
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Validation Error");
         alert.setHeaderText("Validation Failed");
@@ -381,22 +391,20 @@ public class HairCutFormController {
 
     public void btnAddOnAction(ActionEvent actionEvent) {
 
-//        String hairCutId = txtHcId.getText();
-//        String hairCutStyle = txtStyle.getText();
-//        double price = Double.parseDouble(txtPrice.getText());
-//
-//        HairCut hairCut = new HairCut(hairCutId,hairCutStyle,price);
-//
-//        try {
-//            boolean isSaved = HairCutRepo.save(hairCut);
-//            if (isSaved) {
-//                new Alert(Alert.AlertType.CONFIRMATION, "hairCut saved!").show();
-////                clearFields();
-//                initialize();
-//            }
-//        } catch (SQLException e) {
-//            throw new RuntimeException(e);
-//        }
+    }
+
+    public void btnSearchchOnAction(ActionEvent actionEvent) throws SQLException {
+        String id = txtSearch.getText();
+
+        HairCut hairCut = HairCutRepo.searchById(id);
+        if (hairCut != null) {
+            txtHcId.setText(hairCut.getHairCutId());
+            txtStyle.setText(hairCut.getStyle());
+            txtPrice.setText(String.valueOf(hairCut.getPrice()));
+
+        } else {
+            new Alert(Alert.AlertType.INFORMATION, "hairCut not found!").show();
+        }
 
     }
 }

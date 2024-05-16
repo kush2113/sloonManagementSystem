@@ -38,23 +38,20 @@ public class Regex {
             case AMOUNT:
             case PRICE:
             case SALARY:
-                field = "^\\d{4}$";
+                field = "^\\d{3,5}$";
                 break;
 
             case APID:
                 field = "^A\\d+$";
                 break;
 
-            case PID:
-                field="^P\\d+$";
-                break;
+//            case PID:
+//                field="^P\\d+$";
+//                break;
 
             case QTYONHAND:
                 field="^[0-9]{1,2}$";
                 break;
-//            case TIME:
-//                field="^T\\.d+$";
-//                break;
 
             case HID:
                 field="^HC\\d+$";
@@ -69,17 +66,12 @@ public class Regex {
                 break;
 
             case NIC:
-                field="^\\d{10,12}$";
+                field="^([0-9]{9}[x|X|v|V]|[0-9]{12})$";
                 break;
-
 
             case COLOR:
                 field = "^^\\d+(100)100$";
                 break;
-//            case PASSWORD:
-//                field = "^([A-z])([A-z0-9.]){1,}[@]([A-z0-9]){1,10}[.]([A-z]){2,5}$";
-//                break;
-
         }
 
 
@@ -105,16 +97,12 @@ public class Regex {
         if (Regex.isTextFieldValid(location, textField.getText())) {
             textField.setStyle("-fx-focus-color: green; -fx-unfocus-color: green; -fx-border-width: 1px; -fx-border-color: green;-fx-text-fill: green; ");
 
-            // textField.setStyle("-fx-control-inner-background: green; -fx-focus-color: green; -fx-unfocus-color: green;");
-
             return true;
-
 
         } else {
             textField.setStyle("-fx-focus-color: red; -fx-unfocus-color: red; -fx-border-width: 1px; -fx-border-color: red;green;-fx-text-fill: red;");
-            //textField.setStyle("-fx-control-inner-background: red; -fx-focus-color: red; -fx-unfocus-color: red;");
-            return false;
 
+            return false;
 
         }
     }

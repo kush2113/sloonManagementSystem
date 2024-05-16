@@ -1,5 +1,9 @@
 package lk.ijse.demokushan.controller;
 
+import com.jfoenix.controls.JFXButton;
+import javafx.animation.Animation;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -7,6 +11,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Rectangle;
+import javafx.util.Duration;
 import lk.ijse.demokushan.Util.Regex;
 import lk.ijse.demokushan.db.DbConnection;
 import lk.ijse.demokushan.model.*;
@@ -16,10 +21,9 @@ import lk.ijse.demokushan.repository.*;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
 
 
 import net.sf.jasperreports.engine.*;
@@ -62,6 +66,10 @@ public class AppointmentFormController {
     public TableColumn colFId;
     public TableColumn colComment;
     public TableColumn colAppointmentId;
+    public Label lblTime;
+    public Label lblDate;
+    public TableColumn colAction;
+    public TextField txtSearch;
 
     public void initialize() {
         setcellValuese();
@@ -78,10 +86,31 @@ public class AppointmentFormController {
         loadCmbComment();
         loadAllFeedback();
         showSelectedProductDetails();
+        setDate();
+        setTime();
         ObservableList<String> statusOptions = FXCollections.observableArrayList("Complete", "Incomplete");
         cmbStatus.setItems(statusOptions);
 
     }
+    private void setDate() {
+        LocalDate nowDate = LocalDate.now();
+        lblDate.setText(String.valueOf(nowDate));
+    }
+
+    private void setTime() {
+        Timeline timeline = new Timeline(
+                new KeyFrame(Duration.seconds(1), event -> {
+                    LocalTime nowTime = LocalTime.now();
+                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
+                    String formattedTime = nowTime.format(formatter);
+                    lblTime.setText(formattedTime);
+                })
+        );
+        timeline.setCycleCount(Animation.INDEFINITE);
+        timeline.play();
+    }
+
+
     private void showSelectedProductDetails() {
         AppointmentTM selectedUser = (AppointmentTM) TableAppointment.getSelectionModel().getSelectedItem();
         TableAppointment.setOnMouseClicked(event -> showSelectedProductDetails());
@@ -109,12 +138,25 @@ public class AppointmentFormController {
                 obList.add(TM);
                 TableFeedback.setItems(obList);
 
+//                JFXButton btnRemove = new JFXButton("Remove");
+//                btnRemove.setOnAction((k) -> {
+//                    ButtonType yes = new ButtonType("yes", ButtonBar.ButtonData.OK_DONE);
+//                    ButtonType no = new ButtonType("no", ButtonBar.ButtonData.CANCEL_CLOSE);
+//
+//                    Optional<ButtonType> type = new Alert(Alert.AlertType.INFORMATION, "Are you sure to remove?", yes, no).showAndWait();
+//
+//                    if (type.orElse(no) == yes) {
+//                        int selectedIndex = TableFeedback.getSelectionModel().getSelectedIndex();
+//                        obList.remove(selectedIndex);
+//                        TableFeedback.refresh();
+//
+//                    }
+//                });
+
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
-
     }
 
     public void btnCompleteOnAction(ActionEvent actionEvent) throws SQLException {
@@ -130,8 +172,10 @@ public class AppointmentFormController {
         String comment = (String) cmbComment.getValue();
 
 
+
         Payment payment = new Payment(paymentId, paymentType, appointmentId, amount);
         Feedback feedback = new Feedback(fId, comment, appointmentId);
+
 
         List<String> hId = HairCutRepo.getHairCutId((String) cmbHairCutStyle.getValue());
         String hairCutId = hId.get(0);
@@ -140,13 +184,19 @@ public class AppointmentFormController {
             boolean isPlaced = AppointmentRepo.completeAppointment(payment, feedback, hairCutId);
             if (isPlaced) {
                 new Alert(Alert.AlertType.CONFIRMATION, "Appointment complete Successfully!").show();
+
                 initialize();
                 lblTotal.setText("");
+
 
             } else {
                 new Alert(Alert.AlertType.WARNING, "Failed to complete appointment!").show();
             }
+
             initialize();
+            clearFields();
+
+
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
 
@@ -339,16 +389,13 @@ public class AppointmentFormController {
         colFId.setCellValueFactory(new PropertyValueFactory<>("feedbackId"));
         colComment.setCellValueFactory(new PropertyValueFactory<>("comment"));
         colAppointmentId.setCellValueFactory(new PropertyValueFactory<>("appointmentId"));
+        colAction.setCellValueFactory(new PropertyValueFactory<>("btnRemove"));
 
     }
 
     public boolean isValied() {
-        boolean idValied = Regex.setTextColor(lk.ijse.demokushan.Util.TextField.APID, txtApId);
-//        boolean timeValid = Regex.setTextColor(lk.ijse.demokushan.Util.TextField.TIME, txtTime);
-////        boolean validAddress = Regex.setTextColor(lk.ijse.demokushan.Util.TextField.ADDRESS, txtAddress);
-//        boolean validPhone = Regex.setTextColor(lk.ijse.demokushan.Util.TextField.PHONENUMBER, txtPhoneNumber);
-//        boolean email = Regex.setTextColor(lk.ijse.demokushan.Util.TextField.EMAIL, txtEmail);
 
+        boolean idValied = Regex.setTextColor(lk.ijse.demokushan.Util.TextField.APID, txtApId);
 
         return idValied;
     }
@@ -370,9 +417,6 @@ public class AppointmentFormController {
                 return;
             }
 
-//        List<String>statusList = AppointmentRepo.getStatus(status);
-//        System.out.println(statusList.get(0));
-
 
             List<String> employeeIdList = EmployeeRepo.getEmployeeId(employeeId);
             System.out.println(employeeIdList.get(0));
@@ -387,6 +431,7 @@ public class AppointmentFormController {
                 if (isSaved) {
                     new Alert(Alert.AlertType.CONFIRMATION, "All data saved").show();
                     initialize();
+                    clearFields();
                 } else {
                     new Alert(Alert.AlertType.ERROR, "reservation not saved").show();
                 }
@@ -395,7 +440,7 @@ public class AppointmentFormController {
                 throw new RuntimeException(e);
             }
         } else {
-            // Show error message if validation fails
+
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Validation Error");
             alert.setHeaderText("Validation Failed");
@@ -408,13 +453,15 @@ public class AppointmentFormController {
         Regex.setTextColor(lk.ijse.demokushan.Util.TextField.APID, txtApId);
     }
 
-//    public void timeKeyReleaseOnAction(javafx.scene.input.KeyEvent keyEvent) {
-//        Regex.setTextColor(lk.ijse.demokushan.Util.TextField.TIME, txtTime);
-//    }
-
 
     public void btnClearOnAction(ActionEvent actionEvent) {
-        txtApId.setText("");
+        clearFields();
+        genarateNextAppointmentId();
+    }
+
+
+    private void clearFields() {
+        txtSearch.setText("");
         txtTime.setText("");
         txtDatePicker.setValue(null);
         cmbEmployeeId.setValue("");
@@ -443,11 +490,11 @@ public class AppointmentFormController {
                 new Alert(Alert.AlertType.CONFIRMATION, "appointment updated!").show();
 
                 initialize();
+                clearFields();
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
-
 
     }
 
@@ -463,6 +510,7 @@ public class AppointmentFormController {
                     new Alert(Alert.AlertType.CONFIRMATION, "Appointment deleted!").show();
 
                     initialize();
+                    clearFields();
                 }
             } catch (SQLException e) {
                 new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
@@ -537,4 +585,27 @@ public boolean isValidIde(){
 
 
         }
+
+    public void btnSearchchOnAction(ActionEvent actionEvent) throws SQLException {
+
+        String id = txtSearch.getText();
+
+        Appointment appointment = AppointmentRepo.searchById(id);
+
+        if (appointment != null) {
+
+            txtApId.setText(appointment.getAppointmentId());
+            txtTime.setText(appointment.getTime());
+            txtDatePicker.setValue(LocalDate.parse(appointment.getDate()));
+            cmbEmployeeId.setValue(appointment.getEmployeeId());
+            cmbCustomerId.setValue(appointment.getCustomerId());
+            cmbHairCutStyle.setValue(appointment.getHairCutId());
+            cmbStatus.setValue(appointment.getStatus());
+
+            lblTotal.setText(HairCutRepo.getHairCutPrice(appointment.getHairCutId()));
+
+        } else {
+            new Alert(Alert.AlertType.INFORMATION, "appointment not found!").show();
+        }
+    }
 }

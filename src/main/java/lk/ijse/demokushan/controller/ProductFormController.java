@@ -44,6 +44,7 @@ public class ProductFormController {
     public ComboBox cmbSupplierId;
     public ComboBox cmbProductName;
     public TextField txtQty;
+    public TextField txtSearch;
 
 
     public void initialize() {
@@ -163,8 +164,6 @@ public class ProductFormController {
 
     public void btnSaveOnAction(ActionEvent actionEvent) {
 
-        if (isValied()) {
-
 
         String productId = txtPId.getText();
         String productName = txtPName.getText();
@@ -179,20 +178,13 @@ public class ProductFormController {
             if (isSaved) {
                 new Alert(Alert.AlertType.CONFIRMATION, "All data saved").show();
                 initialize();
+                clearFields();
             } else {
                 new Alert(Alert.AlertType.ERROR, "cannot save data").show();
             }
         } catch (
                 SQLException e) {
             throw new RuntimeException(e);
-        }
-        } else {
-            // Show error message if validation fails
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Validation Error");
-            alert.setHeaderText("Validation Failed");
-            alert.setContentText("Please fill in all fields correctly.");
-            alert.showAndWait();
         }
 
     }
@@ -231,6 +223,7 @@ public class ProductFormController {
                 new Alert(Alert.AlertType.CONFIRMATION, "product updated!").show();
 
                 initialize();
+                clearFields();
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
@@ -238,7 +231,13 @@ public class ProductFormController {
     }
 
     public void btnClearOnAction(ActionEvent actionEvent) {
-        txtPId.setText("");
+        clearFields();
+        genarateNextProductId();
+
+    }
+
+        private void clearFields() {
+        txtSearch.setText("");
         txtPName.setText("");
         txtUPrice.setText("");
         txtQtyOnHand.setText("");
@@ -247,7 +246,6 @@ public class ProductFormController {
 
     public void btnDeleteOnAction(ActionEvent actionEvent) {
 
-        if(isValidId()){
 
         String id = txtPId.getText();
 
@@ -257,17 +255,10 @@ public class ProductFormController {
                 new Alert(Alert.AlertType.CONFIRMATION, "product deleted!").show();
 
                 initialize();
+                clearFields();
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
-        }
-        } else{
-
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Validation Error");
-            alert.setHeaderText("Validation Failed");
-            alert.setContentText("Please enter valid Product ID correctly.");
-            alert.showAndWait();
         }
     }
 
@@ -330,6 +321,23 @@ public class ProductFormController {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
 
         }
+    }
+
+    public void btnSearchchOnAction(ActionEvent actionEvent) throws SQLException {
+        
+        String id = txtSearch.getText();
+
+        Product product = ProductRepo.searchById(id);
+        if (product != null) {
+            txtPId.setText(product.getProductId());
+            txtPName.setText(product.getName());
+            txtUPrice.setText(product.getUnitPrice());
+            txtQtyOnHand.setText(product.getQtyOnHand());
+
+        } else {
+            new Alert(Alert.AlertType.INFORMATION, "customer not found!").show();
+        }
+
     }
 }
 

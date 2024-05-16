@@ -147,11 +147,6 @@
             <Font size="14.0" />
          </font>
       </Text>
-      <JFXButton buttonType="RAISED" layoutX="1146.0" layoutY="12.0" onAction="#btnLogOutOnAction" prefHeight="34.0" prefWidth="126.0" text="LogOut" textFill="RED">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </JFXButton>
       <AnchorPane cache="true" layoutX="162.0" layoutY="529.0" prefHeight="210.0" prefWidth="556.0" style="-fx-background-color: white; -fx-background-radius: 40;">
          <effect>
             <ColorAdjust brightness="-0.15" />
@@ -232,7 +227,6 @@
       </Label>
       <Line endX="1258.500244140625" endY="832.36669921875" layoutX="4.0" layoutY="-33.0" startX="1258.500244140625" startY="32.999996185302734" stroke="#ffbd0a" strokeWidth="3.0" />
       <Line endX="1258.500244140625" endY="832.36669921875" layoutX="14.0" layoutY="-42.0" startX="-14.000016212463379" startY="832.36669921875" stroke="#ffbd0a" strokeWidth="3.0" />
-      <AnchorPane fx:id="rootNod24" layoutX="81.0" layoutY="12.0" prefHeight="726.0" prefWidth="387.0" />
       <ImageView blendMode="DARKEN" fitHeight="327.0" fitWidth="470.0" layoutX="732.0" layoutY="464.0" pickOnBounds="true">
          <image>
             <Image url="@../icon/haircutter-cutting-beard-man-barber-shop_82574-11754.jpg" />

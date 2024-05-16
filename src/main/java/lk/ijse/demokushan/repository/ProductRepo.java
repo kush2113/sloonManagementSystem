@@ -65,7 +65,6 @@ public class ProductRepo {
 
     public static boolean save(Product product) throws SQLException {
         String sql = "INSERT INTO product VALUES(?, ?, ?, ?)";
-//        String sql = "INSERT INTO product (productId, productName, unitPrice, qtyOnHand) VALUES (?, ?, ?, ?,?)";
 
         Connection connection = DbConnection.getInstance().getConnection();
         PreparedStatement pstm = connection.prepareStatement(sql);
@@ -73,8 +72,6 @@ public class ProductRepo {
         pstm.setObject(2, product.getName());
         pstm.setObject(3, product.getUnitPrice());
         pstm.setObject(4, product.getQtyOnHand());
-
-      //  pstm.setObject(5, product.getTotal());
 
 
         return pstm.executeUpdate() > 0;
@@ -149,33 +146,5 @@ public class ProductRepo {
         return null;
     }
 
-
-
-//    public static boolean saveTotals(String totalQtyOnHand, String totalUnitPriceString) throws SQLException {
-//        double totalQtyOnHandValue = Double.parseDouble(totalQtyOnHand);
-//        double totalUnitPrice = Double.parseDouble(totalUnitPriceString);
-//
-//        String sql = "INSERT INTO totals (totalQtyOnHand, totalUnitPrice) VALUES (?, ?)";
-//
-//        Connection connection = DbConnection.getInstance().getConnection();
-//        PreparedStatement pstm = connection.prepareStatement(sql);
-//        pstm.setDouble(1, totalQtyOnHandValue);
-//        pstm.setDouble(2, totalUnitPrice);
-//
-//        return pstm.executeUpdate() > 0;
-//    }
 }
-//
-//    public static List<String> getName() throws SQLException {
-//        String sql = "SELECT productName FROM product";
-//        ResultSet resultSet = DbConnection.getInstance()
-//                .getConnection()
-//                .prepareStatement(sql)
-//                .executeQuery();
-//
-//        List<String> nameList = new ArrayList<>();
-//        while (resultSet.next()) {
-//            nameList.add(resultSet.getString(1));
-//        }
-//        return nameList;
-//    }
+

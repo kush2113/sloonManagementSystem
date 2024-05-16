@@ -34,6 +34,7 @@ public class FeedbackFormController {
 
     public TableColumn colAppointmentId;
     public ComboBox cmbAppointmentId;
+    public TableColumn colAction;
 
 
     public  void initialize() {
@@ -112,7 +113,7 @@ public class FeedbackFormController {
 
 //    @FXML
 ////
-////    public void btnSaveOnAction(ActionEvent event) throws SQLException {
+    public void btnSaveOnAction(ActionEvent event) throws SQLException {}
 ////
 ////            String feedbackId = txtFId.getText();
 ////            String comment = txtComment.getText();
@@ -136,14 +137,14 @@ public class FeedbackFormController {
 ////            }
 ////        }
 //
-//    public void btnClearOnAction(ActionEvent actionEvent) {
+    public void btnClearOnAction(ActionEvent actionEvent) {}
 //        txtFId.setText("");
 //        txtComment.setText("");
 //        txtRating.setText("");
 //        cmbAppointmentId.setValue("");
 //    }
 //
-//    public void btnDeleteOnAction(ActionEvent actionEvent) {
+    public void btnDeleteOnAction(ActionEvent actionEvent) {}
 //        String id = txtFId.getText();
 //
 //        try {
@@ -157,7 +158,7 @@ public class FeedbackFormController {
 //            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
 //        }
 //    }
-//    public void btnSearchOnAction(ActionEvent actionEvent) throws SQLException {
+    public void btnSearchOnAction(ActionEvent actionEvent) throws SQLException {}
 //        String id = txtFId.getText();
 //
 //        Feedback feedback = FeedbackRepo.searchById(id);

@@ -1,6 +1,5 @@
 package lk.ijse.demokushan.controller;
 
-//import com.sun.javafx.tk.quantum.PaintRenderJob;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -24,22 +23,14 @@ public class LoginFormController {
     public ImageView icon1;
     public ImageView icon2;
 
-    public boolean isValied() {
-        boolean useNameValied = Regex.setTextColor(lk.ijse.demokushan.Util.TextField.NAME, txtName);
-        boolean passwordValid = Regex.setTextColor(lk.ijse.demokushan.Util.TextField.PASSWORD, txtPassword);
-
-
-        return useNameValied && passwordValid;
-
-    }
 
     @FXML
     boolean btnLoginOnAction(ActionEvent actionEvent) throws IOException {
 
-        if (isValied()) {
+//        if (isValied()) {
 
-            String name = "Kushan";
-            String pass = "12345";
+            String name = "a";
+            String pass = "a";
 
             String userId = txtName.getText();
             String pw = txtPassword.getText();
@@ -50,27 +41,10 @@ public class LoginFormController {
             } else {
                 new Alert(Alert.AlertType.ERROR, "password is wrong ").show();
             }
-        } else {
-            // Show error message if validation fails
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Validation Error");
-            alert.setHeaderText("Validation Failed");
-            alert.setContentText("Please fill in all fields correctly.");
-            alert.showAndWait();
-        }
-
             return false;
 
 }
 
-
-    public void userKeyReleaseOnAction(javafx.scene.input.KeyEvent keyEvent) {
-        Regex.setTextColor(lk.ijse.demokushan.Util.TextField.NAME, txtName);
-    }
-
-    public void passwordKeyReleaseOnAction(javafx.scene.input.KeyEvent keyEvent) {
-        Regex.setTextColor(lk.ijse.demokushan.Util.TextField.PASSWORD, txtPassword);
-    }
 
         private void navigateToTheDashboard () throws IOException {
 
@@ -90,8 +64,8 @@ public class LoginFormController {
         public void btnNameOnAction (KeyEvent actionEvent) throws IOException {
 
 
-            String name = "Kushan";
-            String pass = "12345";
+            String name = "a";
+            String pass = "a";
 
             String userId = txtName.getText();
             String pw = txtPassword.getText();
@@ -106,12 +80,9 @@ public class LoginFormController {
         }
 
         public void btnPasswordOnAction (ActionEvent actionEvent) throws IOException {
-            String name = "Kushan";
-            String pass = "12345";
-//
-//            if (name.contains("Kushan")&pass.contains("1234")){
-//                System.out.println("done");
-//            }
+            String name = "a";
+            String pass = "a";
+
 
             String userId = txtName.getText();
             String pw = txtPassword.getText();

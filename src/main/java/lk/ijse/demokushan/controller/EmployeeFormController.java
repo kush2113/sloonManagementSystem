@@ -47,6 +47,7 @@ public class EmployeeFormController {
 
 
     public AnchorPane rootNode;
+    public TextField txtSearch;
 
     public void initialize() {
         setcellValues();
@@ -148,14 +149,13 @@ public class EmployeeFormController {
                 boolean isSaved = EmployeeRepo.save(employee);
                 if (isSaved) {
                     new Alert(Alert.AlertType.CONFIRMATION, "Employee saved!").show();
-//                clearFields();
                     initialize();
+                    clearFields();
                 }
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
         } else {
-            // Show error message if validation fails
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Validation Error");
             alert.setHeaderText("Validation Failed");
@@ -186,7 +186,12 @@ public class EmployeeFormController {
     }
 
     public void btnClearOnAction(ActionEvent actionEvent) {
-        txtId.setText("");
+        clearFields();
+        genarateNextEmployeeId();
+    }
+    private void clearFields() {
+
+        txtSearch.setText("");
         txtName.setText("");
         txteNumber.setText("");
         txtposition.setText("");
@@ -195,7 +200,8 @@ public class EmployeeFormController {
 
     public void btnUpadateOnAction(ActionEvent actionEvent) {
 
-         if (isValied()) {
+
+        if (isValidIdee()) {
 
         String id = txtId.getText();
         String name = txtName.getText();
@@ -211,21 +217,27 @@ public class EmployeeFormController {
                 new Alert(Alert.AlertType.CONFIRMATION, "employee updated!").show();
 
                 initialize();
+                clearFields();
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
-        } else {
-            // Show error message if validation fails
+        } else{
+
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Validation Error");
             alert.setHeaderText("Validation Failed");
-            alert.setContentText("Please fill in all fields correctly.");
+            alert.setContentText("Please enter valid Employee ID correctly.");
             alert.showAndWait();
+        }
 
     }
+    public boolean isValidIdee(){
+        boolean idValied = Regex.setTextColor(lk.ijse.demokushan.Util.TextField.SALARY, txtSalary);
 
+        return idValied ;
     }
+
     public void btnSearchOnAction(ActionEvent actionEvent) throws SQLException {
         if(isValidIde()){
 
@@ -242,11 +254,10 @@ public class EmployeeFormController {
             new Alert(Alert.AlertType.INFORMATION, "employee not found!").show();
         }
         } else{
-            // Show error message if validation fails
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Validation Error");
             alert.setHeaderText("Validation Failed");
-            alert.setContentText("Please enter valid Customer ID correctly.");
+            alert.setContentText("Please enter valid Employee ID correctly.");
             alert.showAndWait();
         }
     }
@@ -268,12 +279,13 @@ public class EmployeeFormController {
                     new Alert(Alert.AlertType.CONFIRMATION, "employee deleted!").show();
 
                     initialize();
+                    clearFields();
+
                 }
             } catch (SQLException e) {
                 new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
             }
         } else {
-            // Show error message if validation fails
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Validation Error");
             alert.setHeaderText("Validation Failed");
@@ -288,4 +300,19 @@ public class EmployeeFormController {
         return idValied;
     }
 
+    public void btnSearchchOnAction(ActionEvent actionEvent) throws SQLException {
+
+        String id = txtSearch.getText();
+
+        Employee employee = EmployeeRepo.searchById(id);
+        if (employee != null) {
+            txtId.setText(employee.getEmployeeId());
+            txtName.setText(employee.getName());
+            txtposition.setText(employee.getPosition());
+            txteNumber.setText(employee.getContactNumber());
+            txtSalary.setText(employee.getSalary());
+        } else {
+            new Alert(Alert.AlertType.INFORMATION, "employee not found!").show();
+        }
+    }
 }

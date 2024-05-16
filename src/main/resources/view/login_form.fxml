@@ -19,7 +19,7 @@
          </image>
       </ImageView>
       <Rectangle arcWidth="5.0" focusTraversable="true" height="703.0" layoutX="41.0" layoutY="44.0" onKeyTyped="#btnNameOnAction" opacity="0.05" stroke="WHITE" strokeLineCap="BUTT" strokeLineJoin="ROUND" strokeMiterLimit="20.0" strokeType="OUTSIDE" strokeWidth="10.0" width="511.0" />
-      <TextField fx:id="txtName" layoutX="145.0" layoutY="329.0" onAction="#btnNameOnAction" onKeyReleased="#userKeyReleaseOnAction" opacity="0.33" prefHeight="34.0" prefWidth="282.0" promptText="User Name" />
+      <TextField fx:id="txtName" layoutX="145.0" layoutY="329.0" onAction="#btnNameOnAction"  opacity="0.33" prefHeight="34.0" prefWidth="282.0" promptText="User Name" style="-fx-background-radius: 20;" />
       <Text fill="WHITE" layoutX="145.0" layoutY="316.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User Name">
          <font>
             <Font size="17.0" />
@@ -35,7 +35,7 @@
             <Font name="System Bold" size="32.0" />
          </font>
       </Text>
-      <PasswordField fx:id="txtPassword" layoutX="144.0" layoutY="421.0" onAction="#btnPasswordOnAction" onKeyReleased="#passwordKeyReleaseOnAction" opacity="0.33" prefHeight="34.0" prefWidth="282.0" promptText="Password" />
+      <PasswordField fx:id="txtPassword" layoutX="144.0" layoutY="421.0" onAction="#btnPasswordOnAction"  opacity="0.33" prefHeight="34.0" prefWidth="282.0" promptText="Password" style="-fx-background-radius: 20;" />
       <Text fill="WHITE" layoutX="583.0" layoutY="254.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome Back!" wrappingWidth="365.4001281738281">
          <font>
             <Font name="Bookman Old Style" size="76.0" />
@@ -63,7 +63,7 @@
          <font>
             <Font name="System Bold" size="66.0" />
          </font></Text>
-      <JFXButton buttonType="RAISED" layoutX="189.0" layoutY="524.0" onAction="#btnLoginOnAction" prefHeight="43.0" prefWidth="185.0" ripplerFill="BLACK" style="-fx-background-color: #00a8ff; -fx-background-radius: 12;" text="Login" textFill="WHITE">
+      <JFXButton buttonType="RAISED" layoutX="189.0" layoutY="524.0" onAction="#btnLoginOnAction" prefHeight="43.0" prefWidth="185.0" ripplerFill="#00b1fc" style="-fx-background-color: #00a8ff; -fx-background-radius: 12;" text="Login" textFill="WHITE">
          <font>
             <Font name="System Bold" size="21.0" />
          </font>

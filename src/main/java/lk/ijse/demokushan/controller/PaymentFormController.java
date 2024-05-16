@@ -51,6 +51,7 @@ public class PaymentFormController {
     public TableColumn colAppointmentId;
 
     public Rectangle rectangal;
+    public TextField txtSearch;
 
     public  void initialize(){
         setcellValues();
@@ -164,8 +165,9 @@ public class PaymentFormController {
                 boolean isSaved = PaymentRepo.save(payment);
                 if (isSaved) {
                     new Alert(Alert.AlertType.CONFIRMATION, "payment saved!").show();
-//                clearFields();
+
                     initialize();
+                    clearFields();
                 }
             } catch (SQLException e) {
                 throw new RuntimeException(e);
@@ -192,11 +194,16 @@ public class PaymentFormController {
 
 
     public void btnClearOnAction(ActionEvent actionEvent) {
-        txtId.setText("");
+        clearFields();
+        genarateNextPaymentId();
+    }
+
+    private void clearFields() {
+
+        txtSearch.setText("");
         txtTyp.setText("");
         cmbAppointmentId.setValue("");
         txtAmount.setText("");
-        ;
 
     }
 
@@ -212,6 +219,7 @@ public class PaymentFormController {
                     new Alert(Alert.AlertType.CONFIRMATION, "payment deleted!").show();
 
                     initialize();
+                    clearFields();
                 }
             } catch (SQLException e) {
                 new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
@@ -263,4 +271,20 @@ public boolean isValidIde() {
     return idValied;
 }
 
+    public void btnSearchchOnAction(ActionEvent actionEvent) throws SQLException {
+
+        String id = txtSearch.getText();
+
+        Payment payment = PaymentRepo.searchById(id);
+        if (payment != null) {
+            txtId.setText(payment.getPaymentId());
+            txtTyp.setText(payment.getPaymentType());
+            cmbAppointmentId.setValue(payment.getAppintmentId());
+            txtAmount.setText(payment.getAmount());
+
+        } else {
+            new Alert(Alert.AlertType.INFORMATION, "payment not found!").show();
+        }
+
+    }
 }

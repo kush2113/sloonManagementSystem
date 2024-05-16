@@ -18,6 +18,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import jdk.internal.access.JavaNetUriAccess;
 import lk.ijse.demokushan.model.Appointment;
 import lk.ijse.demokushan.model.Customer;
 import lk.ijse.demokushan.model.TM.MostAppointmentTM;
@@ -75,7 +76,10 @@ public class DashBoardFormController {
     public AnchorPane rootNod25;
     public Label lblDate;
     public javafx.scene.chart.BarChart BarChart;
+    public Text txt;
 
+    private String fullText = "Hello ! Tharanga.";
+    private int currentIndex = 0;
     @FXML
     private Label lblTime;
 
@@ -91,8 +95,9 @@ public class DashBoardFormController {
     public DashBoardFormController() throws IOException {
     }
 
-
     public void initialize() {
+
+        startTypingAnimation();
 
         setTime();
         setDate();
@@ -157,6 +162,21 @@ public class DashBoardFormController {
         lblFullPaymentCount.setText(String.valueOf(fullPaymentCount));
     }
 
+    private void startTypingAnimation() {
+        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(0.5), event -> {
+
+            if (currentIndex < fullText.length()) {
+                txt.setText(fullText.substring(0, currentIndex + 1));
+                currentIndex++;
+            } else {
+
+            }
+        }));
+        timeline.setCycleCount(Timeline.INDEFINITE);
+
+        timeline.play();
+    }
+
     public void pieChartConnect() {
 
         List<MostAppointmentTM> itemList = null;
@@ -199,8 +219,6 @@ public class DashBoardFormController {
     private void setPieChartData() {
 
         for (PieChart.Data data : PieChart.getData()) {
-//            data.getNode().setScaleX(0);
-//            data.getNode().setScaleY(0);
 
             Timeline timeline = new Timeline(
                     new KeyFrame(Duration.seconds(1),
@@ -250,13 +268,6 @@ public class DashBoardFormController {
 
     }
 
-//        URL resource = getClass().getResource("/view/feedback_form.fxml");
-//        FXMLLoader fxmlLoader = new FXMLLoader(resource);
-//        AnchorPane load = fxmlLoader.load();
-//        root1.getChildren().clear();
-//        root1.getChildren().add(load);
-
-
     public void btnSupplierOnAction(ActionEvent actionEvent) throws IOException {
 
         URL resource = getClass().getResource("/view/supplier_form.fxml");
@@ -304,6 +315,8 @@ public class DashBoardFormController {
         AnchorPane load = fxmlLoader.load();
         root1.getChildren().clear();
         root1.getChildren().add(load);
+
+
     }
 
     public void btnDashBoardonAction(ActionEvent actionEvent) throws IOException {
@@ -339,11 +352,14 @@ public class DashBoardFormController {
         URL resource = getClass().getResource("/view/profile_details.fxml");
         FXMLLoader fxmlLoader = new FXMLLoader(resource);
         AnchorPane load = fxmlLoader.load();
-        rootNod25.getChildren().clear();
-        rootNod25.getChildren().add(load);
+        root1.getChildren().clear();
+        root1.getChildren().add(load);
 
 
     }
+
 }
+
+
 
 

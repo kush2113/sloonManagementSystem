@@ -174,22 +174,11 @@ public class HomePageController {
     }
 
 
-    public void btnLogOutOnAction(ActionEvent actionEvent) throws IOException {
-
-        AnchorPane rootNode = FXMLLoader.load(this.getClass().getResource("/view/login_form.fxml"));
-
-        Scene scene = new Scene(rootNode);
-
-        Stage stage = (Stage) this.rootNode.getScene().getWindow();
-        stage.setScene(scene);
-        stage.setTitle("Login Form");
-    }
-
     public void btnProfileeOnAction(ActionEvent actionEvent) throws IOException {
-        URL resource = getClass().getResource("/view/profile_page.fxml");
+        URL resource = getClass().getResource("/view/profile_details.fxml");
         FXMLLoader fxmlLoader = new FXMLLoader(resource);
         AnchorPane load = fxmlLoader.load();
-        rootNod24.getChildren().clear();
-        rootNod24.getChildren().add(load);
+        rootNode.getChildren().clear();
+        rootNode.getChildren().add(load);
     }
 }

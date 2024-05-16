@@ -25,6 +25,7 @@ public class CustomerFormController {
 
     public ComboBox cmbStatus;
     public TableColumn colStatus;
+    public TextField txtSearch;
     @FXML
     private TableView<CustomerTM> TbleCustomer;
 
@@ -87,10 +88,6 @@ public class CustomerFormController {
             txtId.setText(selectedUser.getCustomerId());
         }
     }
-
-
-
-
 
     private void genarateNextCustomerId() {
         try {
@@ -160,13 +157,18 @@ public class CustomerFormController {
 
     @FXML
     void btnClearOnAction(ActionEvent event) {
-        txtId.setText("");
+        clearFields();
+        genarateNextCustomerId();
+
+    }
+    private void clearFields() {
+
+        txtSearch.setText("");
         txtName.setText("");
         txtAddress.setText("");
         txtPhoneNumber.setText("");
         txtEmail.setText("");
         cmbStatus.setValue("");
-
     }
 
     public boolean isValied(){
@@ -207,14 +209,14 @@ public class CustomerFormController {
                 boolean isSaved = CustomerRepo.save(customer);
                 if (isSaved) {
                     new Alert(Alert.AlertType.CONFIRMATION, "customer saved!").show();
-    //                clearFields();
+
                     initialize();
+                    clearFields();
                 }
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
         } else {
-            // Show error message if validation fails
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Validation Error");
             alert.setHeaderText("Validation Failed");
@@ -260,7 +262,6 @@ public class CustomerFormController {
             new Alert(Alert.AlertType.INFORMATION, "customer not found!").show();
         }
         } else {
-                // Show error message if validation fails
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Validation Error");
                 alert.setHeaderText("Validation Failed");
@@ -295,6 +296,8 @@ public class CustomerFormController {
                     new Alert(Alert.AlertType.CONFIRMATION, "customer updated!").show();
 
                     initialize();
+                    clearFields();
+
                 }else {
                     new Alert(Alert.AlertType.CONFIRMATION, "customer not updated!").show();
                 }
@@ -302,7 +305,6 @@ public class CustomerFormController {
                 new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
             }
         } else {
-            // Show error message if validation fails
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Validation Error");
             alert.setHeaderText("Validation Failed");
@@ -310,6 +312,7 @@ public class CustomerFormController {
             alert.showAndWait();
         }
     }
+
 
     public void btnDeleteOnAction(ActionEvent actionEvent) {
         if(isValidId()){
@@ -322,6 +325,7 @@ public class CustomerFormController {
                 new Alert(Alert.AlertType.CONFIRMATION, "Customer deleted!").show();
 
                 initialize();
+                clearFields();
             }
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
@@ -340,5 +344,22 @@ public class CustomerFormController {
         boolean idValied = Regex.setTextColor(lk.ijse.demokushan.Util.TextField.CUSID, txtId);
 
         return idValied ;
+    }
+
+    public void btnSearchchOnAction(ActionEvent actionEvent) throws SQLException {
+//        String id = txtId.getText();
+        String id = txtSearch.getText();
+
+        Customer customer = CustomerRepo.searchById(id);
+        if (customer != null) {
+            txtId.setText(customer.getCustomerId());
+            txtName.setText(customer.getName());
+            txtPhoneNumber.setText(customer.getPhoneNumber());
+            txtAddress.setText(customer.getAddress());
+            txtEmail.setText(customer.getEmail());
+            cmbStatus.setValue(customer.getStatus());
+        } else {
+            new Alert(Alert.AlertType.INFORMATION, "customer not found!").show();
+        }
     }
 }
