@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="rootNode" prefHeight="792.0" prefWidth="1264.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.demokushan.controller.EmployeeFormController">
+   <children>
+      <Rectangle fx:id="rectangal" arcHeight="5.0" arcWidth="5.0" height="793.0" stroke="#ffd200fc" strokeType="INSIDE" strokeWidth="2.0" width="1265.0">
+         <fill>
+            <LinearGradient endX="0.11363636363636365" endY="0.996212102247007" startX="0.13636361468922004" startY="0.2604167244651105">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.19607843458652496" green="0.4941176474094391" blue="0.6431372761726379" opacity="0.9900000095367432" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Rectangle>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="299.0" layoutX="106.0" layoutY="38.0" stroke="#ffd200" strokeType="INSIDE" strokeWidth="5.0" width="1063.0" />
+      <Text fill="WHITE" layoutX="152.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Employee Id         :">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Text>
+      <TextField fx:id="txtId" layoutX="331.0" layoutY="60.0" onKeyReleased="#idKeyReleaseOnAction" prefHeight="38.0" prefWidth="228.0" />
+      <Text fill="WHITE" layoutX="150.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Employee Name   :" wrappingWidth="176.4536590576172">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Text>
+      <TextField fx:id="txtName" layoutX="330.0" layoutY="143.0" onKeyReleased="#eNameKeyReleaseOnAction" prefHeight="38.0" prefWidth="228.0" />
+      <Text fill="WHITE" layoutX="151.0" layoutY="253.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contact Number  :">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="626.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Position        :">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Text>
+      <TextField fx:id="txteNumber" layoutX="331.0" layoutY="228.0" onKeyReleased="#eNumberKeyReleaseOnAction" prefHeight="38.0" prefWidth="228.0" />
+      <TextField fx:id="txtposition" layoutX="758.0" layoutY="56.0" onKeyReleased="#positionKeyReleaseOnAction" prefHeight="38.0" prefWidth="228.0" />
+      <Text fill="WHITE" layoutX="629.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Salary           :">
+         <font>
+            <Font size="17.0" />
+         </font>
+
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Text>
+      <TableView fx:id="tableEmployee" layoutX="142.0" layoutY="389.0" opacity="0.91" prefHeight="362.0" prefWidth="984.0" style="-fx-background-color: #a4b0be;">
+         <columns>
+            <TableColumn fx:id="colId" prefWidth="156.53338623046875" text="Employee Id" />
+            <TableColumn fx:id="colName" prefWidth="149.86663818359375" text="Employee Name" />
+            <TableColumn fx:id="colNumber" prefWidth="186.93331909179688" text="Contact Number" />
+            <TableColumn fx:id="colPosition" prefWidth="215.2000732421875" text="Position        " />
+            <TableColumn fx:id="colSalary" prefWidth="276.26678466796875" text="Salary" />
+         </columns>
+      </TableView>
+      <TextField fx:id="txtSalary" layoutX="758.0" layoutY="145.0" onKeyReleased="#salaryKeyReleaseOnAction" prefHeight="38.0" prefWidth="228.0" />
+      <JFXButton buttonType="RAISED" layoutX="488.0" layoutY="66.0" onAction="#btnSearchOnAction" prefHeight="20.0" prefWidth="64.0" style="-fx-background-color: #778ca3;" text="Search">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="664.0" layoutY="271.0" onAction="#btnSaveOnAction" prefHeight="36.0" prefWidth="102.0" ripplerFill="BLACK" style="-fx-background-color: #e67e22;" text="Save">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="888.0" layoutY="271.0" onAction="#btnClearOnAction" prefHeight="36.0" prefWidth="102.0" ripplerFill="BLACK" style="-fx-background-color: #e67e22;" text="Clear">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="775.0" layoutY="271.0" onAction="#btnUpadateOnAction" prefHeight="36.0" prefWidth="102.0" ripplerFill="BLACK" style="-fx-background-color: #e67e22;" text="Update">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="1001.0" layoutY="271.0" onAction="#btnDeleteOnAction" prefHeight="36.0" prefWidth="102.0" ripplerFill="BLACK" style="-fx-background-color: red;" text="Delete">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="726.0" prefWidth="452.0" style="-fx-background-color: #13123A;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.demokushan.controller.ProfilePageController">
+   <children>
+      <AnchorPane layoutX="103.0" layoutY="143.0" prefHeight="200.0" prefWidth="216.0" style="-fx-background-color: #00002C; -fx-background-radius: 16; -fx-border-color: black; -fx-border-width: 3;">
+         <children>
+            <Label layoutX="41.0" layoutY="158.0" prefHeight="40.0" prefWidth="127.0" text="    Profile" textFill="WHITE">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <Label layoutX="42.0" layoutY="89.0" prefHeight="43.0" prefWidth="222.0" text="Profile details" textFill="WHITE">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Label>
+      <AnchorPane layoutX="13.0" layoutY="405.0" prefHeight="266.0" prefWidth="425.0" style="-fx-background-color: #00002C; -fx-background-radius: 16; -fx-border-color: #130f40; -fx-border-width: 2;" />
+      <Label layoutX="25.0" layoutY="478.0" prefHeight="43.0" prefWidth="222.0" text="Phone Number :" textFill="WHITE">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="25.0" layoutY="543.0" prefHeight="43.0" prefWidth="222.0" text="Email                 :" textFill="WHITE">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="25.0" layoutY="614.0" prefHeight="43.0" prefWidth="222.0" text="Address             :" textFill="WHITE">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="203.0" layoutY="478.0" prefHeight="43.0" prefWidth="222.0" text="0769340018" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="203.0" layoutY="544.0" prefHeight="43.0" prefWidth="222.0" text="Tharanga12@gmail.com" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="203.0" layoutY="614.0" prefHeight="43.0" prefWidth="222.0" text="Mathugama" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="25.0" layoutY="407.0" prefHeight="43.0" prefWidth="212.0" text="Name                :" textFill="WHITE">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="203.0" layoutY="407.0" prefHeight="43.0" prefWidth="222.0" text="Tharanga Samarasinghe" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="150.0" fitWidth="156.0" layoutX="132.0" layoutY="150.0" pickOnBounds="true">
+         <image>
+            <Image url="@../icon/sloonowner.png" />
+         </image>
+      </ImageView>
+      <JFXButton fx:id="BtnBack" buttonType="RAISED" layoutX="10.0" layoutY="8.0" onAction="#btnBacktoOnAction" prefHeight="50.0" prefWidth="117.0" style="-fx-background-color: black; -fx-background-radius: 5;" text="             Back" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </JFXButton>
+      <ImageView blendMode="ADD" fitHeight="51.0" fitWidth="55.0" layoutX="10.0" layoutY="8.0" opacity="0.09" pickOnBounds="true">
+         <image>
+            <Image url="@../icon/images (2).png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
