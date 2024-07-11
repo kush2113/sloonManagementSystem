@@ -157,36 +157,6 @@ public class AppointmentRepo {
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//    public static int getAppointmentCount() throws SQLException {
-//
-//        String sql = "select count(*) from appointment ";
-//
-//        Connection connection =DbConnection.getInstance().getConnection();
-//        PreparedStatement pstm = connection.prepareStatement(sql);
-//        ResultSet resultSet = pstm.executeQuery();
-//
-//        if(resultSet.next()) {
-//            return resultSet.getInt(1);
-//        }
-//        return 0;
-//    }
-
-
     public static List<Appointment> getAll() throws SQLException {
         String sql = "SELECT * FROM appointment";
 

@@ -24,6 +24,7 @@ public class DashBoardRepo {
         try {
 
             while (resultSet.next()) {
+
                 String id = resultSet.getString("customerId");
                 String name = resultSet.getString("customerName");
                 int visitCount = resultSet.getInt("visitCount");

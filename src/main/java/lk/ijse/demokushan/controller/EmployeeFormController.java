@@ -222,6 +222,7 @@ public class EmployeeFormController {
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
+
         } else{
 
             Alert alert = new Alert(Alert.AlertType.ERROR);
