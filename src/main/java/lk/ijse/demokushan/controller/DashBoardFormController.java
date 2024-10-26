@@ -122,8 +122,7 @@ public class DashBoardFormController {
         } catch (SQLException e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
             System.out.println();
-            System.out.println();
-            System.out.println();
+
         }
         setSupplierCount(sCount);
         setCount(cCount);
